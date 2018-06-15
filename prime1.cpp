@@ -1,3 +1,7 @@
+/*This program prints prime numbers between and including two numbers for t test cases. Segmented Sieve is used to mark nn prime numbers 
+to increase efficiency compared to simple sieve*/
+
+
 #include <vector>
 #include <iostream>
 #include <cmath>
