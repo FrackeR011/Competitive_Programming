@@ -1,0 +1,56 @@
+#include <iostream>
+#include <algorithm>
+#define MAX 1000
+
+using namespace std ;
+
+
+int main()
+{
+    int t , n , m , temp , i ;
+    cin>>t ;
+    bool arr[ MAX ] ;
+    while( t-- )
+    {
+        int chef[MAX] , assist[MAX] , index1 , index2 ;
+        index1 = index2 = 0 ;
+        fill_n( arr , MAX , false ) ;
+        cin>>n ;
+        cin>>m ;
+        for( i = 0 ; i<m ; i++ )
+        {
+            cin>>temp ;
+            arr[ temp - 1 ] = true ;
+        }
+        
+        int alt = 1 ;
+        
+        for( i = 0 ; i<n ; i++ )
+            if( arr[i] == false )
+            {
+                if( alt == 1 )
+                {
+                    chef[index1] = i + 1 ;
+                    index1++ ;
+                    alt *= -1 ;
+                }
+                else
+                {
+                    assist[index2] = i + 1 ;
+                    index2++ ;
+                    alt *= -1 ;
+                }    
+            }
+            
+        for( i = 0 ; i < index1 ; i++ )
+            cout<<chef[i]<<" " ;
+            
+            cout<<"\n";
+            
+        for( i = 0 ; i < index2 ; i++ )
+            cout<<assist[i]<<" " ;
+            
+  }
+    
+}    
+    
