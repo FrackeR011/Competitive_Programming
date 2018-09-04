@@ -1,0 +1,28 @@
+#include <iostream>
+#include <vector>
+using namespace std ;
+
+int find_ans( int n )
+{
+    int count = 0 ;
+    for( int i = 5 ; i<=n ; i = i * 5 )
+        count += n / i ;
+    return count ;        
+}
+
+int main()
+{
+    int t , i , temp ;
+    vector <int> v ;
+    cin>>t ;
+    for( i = 0 ; i < t ; i++ )
+    {
+        cin>>temp;
+        v.push_back( temp ) ;
+    }
+    
+    for( i = 0 ; i< t ; i++ )
+    {
+        cout<<find_ans( v[i] )<<"\n" ;
+            
+    }
