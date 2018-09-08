@@ -1,0 +1,212 @@
+#include <iostream>
+#include <stdlib.h>
+using namespace std ;
+
+template < class T >
+class Metre
+{
+	float value ;
+//	float conv_factor = 1 ;
+
+	public :
+
+	float conv_factor = 1 ;
+		Metre( )
+		{	value = 0 ;	}
+		
+		Metre( float v )
+		{	value = v ;	}
+
+		void set_value( float v )
+		{	value = v ;	}
+
+		float get_value( )
+		{	return value ;	}
+
+	friend T operator +( T obj ) ;
+	friend T operator -( T obj ) ;
+	friend T operator /( T obj ) ;
+	friend T operator *( T obj ) ; 	
+} ;
+
+template < class T >
+class Centimetre
+{
+	float value ;
+//	float conv_factor = 0.01;
+
+	public :
+	float conv_factor = 0.01;
+		Centimetre( )
+		{	value = 0 ;	}
+		
+		Centimetre( float v )
+		{	value = v ;	}
+
+		void set_value( float v )
+		{	value = v ;	}
+
+		float get_value( )
+		{	return value ;	}
+
+	friend T operator +( T obj ) ;
+	friend T operator -( T obj ) ;
+	friend T operator /( T obj ) ;
+	friend T operator *( T obj ) ; 	
+} ;
+
+template < class T >
+class Kilometre
+{
+	float value ;
+//	float conv_factor = 1000 ;
+
+	public :
+	float conv_factor = 1000 ;
+		Kilometre( )
+		{	value = 0 ;	}
+		
+		Kilometre( float v )
+		{	value = v ;	}
+
+		void set_value( float v )
+		{	value = v ;	}
+
+		float get_value( )
+		{	return value ;	}
+
+	friend T operator +( T obj ) ;
+	friend T operator -( T obj ) ;
+	friend T operator /( T obj ) ;
+	friend T operator *( T obj ) ; 	
+} ;
+
+template < class T >
+class Feet
+{
+	float value ;
+//	float conv_factor = 0.3048 ;
+
+	public :
+	float conv_factor = 0.3048 ;
+		Feet( )
+		{	value = 0 ;	}
+		
+		Feet( float v )
+		{	value = v ;	}
+
+		void set_value( float v )
+		{	value = v ;	}
+
+		float get_value( )
+		{	return value ;	}
+
+	friend T operator +( T obj ) ;
+	friend T operator -( T obj ) ;
+	friend T operator /( T obj ) ;
+	friend T operator *( T obj ) ; 	
+} ;	
+
+template < class T >
+class Inch
+{
+	float value ;
+//	float conv_factor = 0.0254;
+
+	public :
+	float conv_factor = 0.3048 ;
+		Inch( )
+		{	value = 0 ;	}
+		
+		Inch( float v )
+		{	value = v ;	}
+
+		void set_value( float v )
+		{	value = v ;	}
+
+		float get_value( )
+		{	return value ;	}
+
+	friend T operator +( T obj ) ;
+	friend T operator -( T obj ) ;
+	friend T operator /( T obj ) ;
+	friend T operator *( T obj ) ; 	
+} ; 			
+
+template < class T >
+T operator + ( T obj ) 
+{
+	T< float > res ;
+	float v = val*conv_factor + obj.get_value() * obj.conv_factor ;
+	v = v / conv_factor ;
+	res.set_value( v ) ;
+	return res ;
+}  
+
+template < class T >
+T operator - ( T obj ) 
+{
+	T< float>  res ;
+	float v = val*conv_factor - obj.get_value() * obj.conv_factor ;
+	res.set_value( v ) ;
+	return res ;
+}  
+
+template < class T >
+T operator / ( T obj ) 
+{
+	T< float > res ;
+	float v = ( val*conv_factor ) / ( obj.get_value() * obj.conv_factor ) ;
+	v = v / ( conv_factor ) ^ 2 ;
+	res.set_value( v ) ;
+	return res ;
+}  
+
+template < class T >
+T operator * ( T obj ) 
+{
+	T< float > res ;
+	float v = val*conv_factor * obj.get_value() * obj.conv_factor ;
+	v = v / conv_factor ;
+	res.set_value( v ) ;
+	return res ;
+}  		
+
+
+int main()
+{
+	int choice1 , choice2 ;
+	cin >> choice ;
+	/*switch( choice1 ) 
+	{
+		case 1 : Metre obj1 ;
+		case 2 : Centimetre obj1;
+		case 3 : Kilometre obj1;
+		case 4 : Feet obj1 ;
+		case 5 : Inch obj1 ;
+	}
+	
+	switch( choice ) :
+	{
+		case 1 : Metre obj2 , res ;
+		case 2 : Centimetre obj2 , res ;
+		case 3 : Kilometre obj2 , res ;
+		case 4 : Feet obj2 , res ;
+		case 5 : Inch obj2 , res ;
+	}*/
+
+	Metre<Centimetre> obj1 ;
+	Centimetre<float> obj2 ;
+
+	res = obj1 + obj2 ;
+	
+	cout<<res.get_value() ;
+
+}
+
+	
+
+		 	
+				
+	
+	
